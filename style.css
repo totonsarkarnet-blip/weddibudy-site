@@ -1,0 +1,290 @@
+body{
+    margin:0;
+    padding: 0;
+    justify-content: center;
+     background: linear-gradient(135deg,#6c7ae0,#7a5bcf);
+    overflow-x:hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* RGB Glow Background */
+
+.glow-bg{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+
+.glow-bg::before,
+.glow-bg::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    filter:blur(120px);
+    opacity:0.8;
+    animation: rgbGlow 8s infinite alternate;
+}
+
+.glow-bg::before{
+    top:10%;
+    left:10%;
+}
+
+.glow-bg::after{
+    bottom:10%;
+    right:10%;
+    animation-delay:4s;
+}
+
+@keyframes rgbGlow{
+    0%{
+        background:rgba(255,0,128,0.7);
+        transform:translate(0,0) scale(1);
+    }
+    25%{
+        background:rgba(0,255,255,0.7);
+    }
+    50%{
+        background:rgba(255,255,0,0.7);
+        transform:translate(150px,100px) scale(1.3);
+    }
+    75%{
+        background:rgba(0,255,128,0.7);
+    }
+    100%{
+        background:rgba(255,0,255,0.7);
+        transform:translate(-100px,-50px) scale(1.1);
+    }
+}
+
+/* Navbar */
+nav{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:15px 40px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.3);
+text-align:center;
+}
+
+/* Menu */
+nav ul{
+list-style:none;
+display:flex;
+gap:30px;
+justify-content:center;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:18px;
+padding:8px 12px;
+position:relative;
+transition:0.3s;
+}
+
+/* Hover Underline Animation */
+nav ul li a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:2px;
+background:#38bdf8;
+transition:0.3s;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+.container{
+    max-width:1200px;   /* main width */
+    margin:auto;        /* center align */
+    padding:0 20px;     /* mobile gap */
+    justify-content: center;
+}
+
+/* Main hading */
+
+
+.hero{
+    
+    display:flex;
+    flex-direction:column;
+    align-items:center;       /* horizontal center */
+    text-align:center;        /* text center */
+}
+
+h1{
+    font-size: 70px;
+    font-weight: 700;
+    margin-bottom: 0%;
+    color: #ffffff;
+    font
+}
+
+p{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.para1{
+    color: #ffffff;
+    max-width: 800px;
+    
+}
+/* Container */
+.card-container{
+    margin-top: 80px;
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+/*  MAIN WRAPPER */
+.card-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    width:100%;
+}
+
+/* CARD */
+.card{
+    width:300px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+    text-align:center;
+}
+
+.prewedding{
+    color: #3A8B95;
+}
+
+.wedding{
+    color: #dd2476;
+}
+
+.birthday{
+    color: #134E8E;
+}
+
+.card-content h2{
+    margin:0;
+
+}
+
+.card-content p{
+    color:#777;
+    font-size:14px;
+    margin:15px 0;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 25px;
+    border-radius:30px;
+    background:linear-gradient(45deg,#ff512f,#dd2476);
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    letter-spacing:1px;
+}
+
+.img-popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.img-popup img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+}
+
+
+/* Services */
+
+.services-sec{
+max-height:fit-content;
+margin-top: 50px;
+margin-bottom: 30px;
+max-width: 1200px;
+text-align:center;
+justify-content: center;
+padding-top: 30px;
+padding-bottom: 30px;
+border-radius: 20px;
+background: #F8F3E1;
+color: #090909;
+
+}
+
+.services-sec h2{
+font-size: 40px;
+padding: 0%;
+margin: 0%;
+}
+
+.service-sub{
+    margin-top: -5px;
+}
+.services{
+    background: #ffdbfd;
+     border-radius: 20px;
+     padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+
+}
+
+.services-box{
+    color: #090909;
+    margin-bottom: 50px;
+    
+}
+
+
