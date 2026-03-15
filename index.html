@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<button class="menu-toggle" id="menuToggle">
+☰
+</button>
 <title>Weddibudy — Photography</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -117,6 +120,8 @@
     justify-content: space-between;
     animation: fadeUp 1s 0.15s ease both;
   }
+
+  
   .hero-left {}
   .hero-eyebrow {
     font-size: 0.58rem;
@@ -172,6 +177,38 @@
     color: var(--muted);
     margin-top: 0.3rem;
   }
+
+
+  @media (max-width:768px){
+
+.hero{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:80px 20px;
+}
+
+.hero-content{
+margin:0 auto;
+text-align:center;
+}
+
+.hero h1{
+font-size:2.4rem;
+line-height:1.2;
+}
+
+.hero-stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+}
 
   /* ── CATEGORY TABS ── */
   .tabs-section {
@@ -463,6 +500,150 @@
     .hero-stats { justify-content: flex-start; }
     nav { display: none; }
   }
+
+
+  /* MOBILE MENU */
+
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--brown);
+}
+
+@media (max-width:768px){
+
+nav{
+  position:fixed;
+  top:0;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:var(--cream);
+  flex-direction:column;
+  align-items:flex-start;
+  padding:80px 30px;
+  gap:25px;
+  transition:0.4s;
+  box-shadow:-10px 0 40px rgba(0,0,0,0.08);
+}
+
+nav a{
+  font-size:0.8rem;
+}
+
+nav.active{
+  right:0;
+}
+
+.menu-toggle{
+  display:block;
+}
+
+.header-cta{
+  display:none;
+}
+
+}
+
+/* RECENT WORKS */
+
+.recent-section{
+padding:5rem;
+}
+
+.recent-head{
+margin-bottom:2rem;
+}
+
+.recent-eyebrow{
+font-size:.55rem;
+letter-spacing:.4em;
+text-transform:uppercase;
+color:var(--rose);
+}
+
+.recent-head h2{
+font-family:'Playfair Display',serif;
+font-size:2.6rem;
+font-weight:300;
+margin-top:.5rem;
+}
+
+.recent-head em{
+color:var(--rose);
+}
+
+.recent-gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:1rem;
+}
+
+.recent-img{
+width:100%;
+height:260px;
+object-fit:cover;
+cursor:pointer;
+transition:.5s;
+}
+
+.recent-img:hover{
+transform:scale(1.05);
+}
+
+/* POPUP */
+
+.img-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+display:flex;
+align-items:center;
+justify-content:center;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:999;
+}
+
+.img-popup.active{
+opacity:1;
+pointer-events:auto;
+}
+
+.img-popup img{
+max-width:90%;
+max-height:90%;
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+
+.close-popup{
+position:absolute;
+top:30px;
+right:40px;
+font-size:30px;
+color:white;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+.recent-section{
+padding:2rem 1.5rem;
+}
+
+.recent-img{
+height:200px;
+}
+
+}
+
 </style>
 </head>
 <body>
@@ -482,7 +663,7 @@
   </nav>
   <button class="header-cta">Book a Session</button>
 </header>
-
+<div class="menu-overlay" id="menuOverlay"></div>
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
@@ -731,6 +912,35 @@
   </div>
 </div>
 
+<section class="recent-section">
+
+<div class="recent-head">
+<span class="recent-eyebrow">Latest Moments</span>
+<h2>Recent <em>Works</em></h2>
+</div>
+
+<div class="recent-gallery">
+
+<img src="Recent-work\Baby1.jpg" class="recent-img">
+<img src="Recent-work\Bride2.jpg" class="recent-img">
+<img src="Recent-work\Baby3.jpg" class="recent-img">
+<img src="Recent-work\Baby2.jpg" class="recent-img">
+<img src="Recent-work\Bride3.jpg" class="recent-img">
+<img src="Recent-work\Baby4.jpg" class="recent-img">
+<img src="Recent-work\Bride1.jpg" class="recent-img">
+
+
+</div>
+
+</section>
+
+
+<!-- Image Popup -->
+<div class="img-popup" id="imgPopup">
+<span class="close-popup">✕</span>
+<img id="popupImg">
+</div>
+
 <!-- FOOTER -->
 <footer>
   <span>© 2026 Weddibudy</span>
@@ -803,6 +1013,57 @@
       setTimeout(updateProgress, 100);
     });
   });
+
+// Mobile menu toggle
+
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.querySelector("nav");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+});
+
+const overlay = document.getElementById("menuOverlay");
+
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("active");
+  overlay.classList.toggle("active");
+});
+
+overlay.addEventListener("click", () => {
+  navMenu.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Image zoom popup
+
+const popup = document.getElementById("imgPopup");
+const popupImg = document.getElementById("popupImg");
+
+document.querySelectorAll(".recent-img").forEach(img => {
+
+img.addEventListener("click", () => {
+
+popup.classList.add("active");
+popupImg.src = img.src;
+
+});
+
+});
+
+document.querySelector(".close-popup").addEventListener("click", () => {
+
+popup.classList.remove("active");
+
+});
+
+popup.addEventListener("click",(e)=>{
+if(e.target === popup){
+popup.classList.remove("active");
+}
+});
+
+
 </script>
 </body>
 </html>
