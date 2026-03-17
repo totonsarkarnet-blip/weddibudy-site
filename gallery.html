@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weddibudy</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">Weddibudy</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>“We Don’t Just Capture Photos… <span>We Capture Emotions”</span></h1>
+    <p>💍 Wedding | 👶 Baby Shoot | 📸 Timeless 
+    </p>
+ <p> Your beautiful moments deserve to live forever.</p>
+    <button onclick="scrollToGallery()">Explore Gallery</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+
+  <h2>Our Work</h2>
+
+  <!-- FILTER -->
+  <div class="filter-buttons">
+    <button onclick="filterImages('all')">All</button>
+    <button onclick="filterImages('wedding')">Wedding</button>
+    <button onclick="filterImages('baby')">Baby</button>
+  </div>
+
+  <div class="gallery-grid">
+
+    <div class="item wedding"><img src="images/1.jpg"></div>
+    <div class="item wedding"><img src="images/2.jpg"></div>
+    <div class="item wedding"><img src="images/3.jpg"></div>
+    <div class="item baby"><img src="images/4.jpg"></div>
+    <div class="item baby"><img src="images/5.jpg"></div>
+    <div class="item baby"><img src="images/7.jpg"></div>
+    <div class="item wedding"><img src="images/8.jpg"></div>
+
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span onclick="closeLightbox()">×</span>
+  <img id="lightbox-img">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
