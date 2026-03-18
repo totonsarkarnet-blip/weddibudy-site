@@ -32,7 +32,7 @@ for(let i = 1; i <= 0; i++){
 }
 
 // Baby images
-for(let i = 1; i <= 10; i++){
+for(let i = 1; i <= 12; i++){
   designs.push({
     src: `Baby${i}.jpg`,
     title: `Baby ${i}`,
