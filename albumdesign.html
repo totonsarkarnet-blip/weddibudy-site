@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weddibudy — Album Design</title>
+<link rel="stylesheet" href="style2.css">
+
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <!-- Navbar -->
+<div class="navbar">
+  <div class="navbartext"> 
+  <h2 class="logo">Weddibudy</h2>
+
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  </div>
+</div>
+
+<section class="hero">
+  <h1 class="hero-title">Weddibudy Studio</h1>
+  <p class="hero-subtitle">Creative Album Design & Photography</p>
+   <button onclick="scrollToGallery()">View Album Design</button>
+</section>
+
+<section class="gallery-section" id="gallery2">
+  <h2>Our Work</h2>
+<div class="filter-buttons">
+  <button id="b1" onclick="filterGallery('all')">All</button>
+  <button onclick="filterGallery('Wedding')">Wedding</button>
+  <button onclick="filterGallery('Prewedding')">Pre Wedding</button>
+  <button onclick="filterGallery('Baby')">Baby</button>
+</div>
+ 
+  <div class="gallery" id="gallery"></div>
+ <div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+
+  <img id="lightboxImg">
+</div>
+</section>
+<script src="script2.js"></script>
+</body>
+</html>

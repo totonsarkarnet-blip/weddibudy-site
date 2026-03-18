@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weddibudy</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+ <!-- Navbar -->
+<div class="navbar">
+  <div class="navbartext"> 
+  <h2 class="logo">Weddibudy</h2>
+
+  <ul class="menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="albumdesign.html">Album Design</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>“We Don’t Just Capture Photos… <span>We Capture Emotions”</span></h1>
+    <p>💍 Wedding | 👶 Baby Shoot | 📸 Timeless 
+    </p>
+ <p> Your beautiful moments deserve to live forever.</p>
+    <button onclick="scrollToGallery()">Explore Gallery</button>
+  </div>
+</section>
+
+<!-- GALLERY -->
+
+ <section class="gallery-section">
+  <h2>Our Work</h2>
+<div class="filter-buttons">
+  <button id="b1" onclick="filterGallery('all')">All</button>
+  <button onclick="filterGallery('Wedding')">Wedding</button>
+  <button onclick="filterGallery('Prewedding')">Pre Wedding</button>
+  <button onclick="filterGallery('Baby')">Baby</button>
+</div>
+ 
+  <div class="gallery" id="gallery"></div>
+ <div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+
+  <img id="lightboxImg">
+</div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
