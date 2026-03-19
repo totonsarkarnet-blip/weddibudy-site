@@ -4,7 +4,13 @@ function scrollToGallery(){
   });
 }
 
-
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 // =====================
 // CREATE DESIGN DATA
@@ -15,9 +21,9 @@ const designs = [];
 for(let i = 1; i <= 6; i++){
   designs.push({
     src: `Wedding${i}.jpg`,
-    title: `Wedding ${i}`,
+    title: `Wedding`,
     cat: "Wedding",
-    tag: "Premium"
+    tag: "Wedding"
   });
 }
 
@@ -25,19 +31,19 @@ for(let i = 1; i <= 6; i++){
 for(let i = 1; i <= 0; i++){
   designs.push({
     src: `Prewedding${i}.jpg`,
-    title: `Pre Wedding ${i}`,
+    title: `Pre Wedding`,
     cat: "Prewedding",
-    tag: "New"
+    tag: "Pre-Wedding"
   });
 }
 
 // Baby images
-for(let i = 1; i <= 12; i++){
+for(let i = 1; i <= 10; i++){
   designs.push({
     src: `Baby${i}.jpg`,
-    title: `Baby ${i}`,
+    title: `Baby`,
     cat: "Baby",
-    tag: "Trending"
+    tag: "Baby"
   });
 }
 
@@ -85,7 +91,7 @@ function renderGallery(items){
 // =====================
 function filterGallery(category){
   if(category === "all"){
-    renderGallery(designs);
+    renderGallery(shuffleArray(designs)); // 👉 mixed show করবে
   } else {
     let filtered = designs.filter(item => item.cat === category);
     renderGallery(filtered);
@@ -153,4 +159,4 @@ document.getElementById("lightbox").addEventListener("touchend", e=>{
 // =====================
 // INITIAL LOAD
 // =====================
-renderGallery(designs);
+renderGallery(shuffleArray(designs));
